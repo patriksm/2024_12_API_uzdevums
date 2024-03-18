@@ -17,8 +17,14 @@ request.onload = function(){
         var data = request.response;
         console.log(data);
         var obj = JSON.parse(data);
-
-        console.log(obj.help);
+        for(let i = 0; i < obj.result.records.length; i++){
+            var punkts = obj.result.records[i];
+            if(punkts["8 : Baterijas un akumulatori"] == "x"){
+                console.log(punkts);
+                console.log(punkts["8 : Baterijas un akumulatori"]);
+            }
+        }
+        
        
     } else {
         console.log("Serveris neadbild");
