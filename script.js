@@ -7,11 +7,15 @@ request.responseType = 'json';
 request.send();
 
 request.onload = function(){
-    if(request.status >= 200 && request.response < 400){
+    if(request.status >= 200 && request.status < 400){
         console.log(request.status);
         console.log(request.response);
+        if(request.response == null){
+            console.log("nav datu");
+        }
     } else {
         console.log("Serveris neadbild");
+        console.log(request.status);
     }
     
 }
