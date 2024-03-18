@@ -3,16 +3,23 @@ var requestURL = `https://data.gov.lv/dati/lv/api/3/action/datastore_search?reso
 var request = new XMLHttpRequest();
 
 request.open('GET', requestURL);
-request.responseType = 'json';
+//request.responseType = 'json';
 request.send();
 
 request.onload = function(){
-    if(request.status >= 200 && request.status < 400){
-        console.log(request.status);
-        console.log(request.response);
+    if(request.status >= 200 && request.status < 400){ 
         if(request.response == null){
             console.log("nav datu");
         }
+        console.log(request.status);
+        
+        
+        var data = request.response;
+        console.log(data);
+        var obj = JSON.parse(data);
+
+        console.log(obj.help);
+       
     } else {
         console.log("Serveris neadbild");
         console.log(request.status);
