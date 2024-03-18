@@ -7,6 +7,11 @@ request.responseType = 'json';
 request.send();
 
 request.onload = function(){
-    console.log(request.status);
-    console.log(request.response);
+    if(request.status >= 200 && request.response < 400){
+        console.log(request.status);
+        console.log(request.response);
+    } else {
+        console.log("Serveris neadbild");
+    }
+    
 }
